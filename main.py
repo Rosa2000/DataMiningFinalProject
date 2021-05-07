@@ -21,9 +21,9 @@ with open('data.csv', 'a', encoding='utf-8') as csv_file:
         wait = WebDriverWait(driver,10)
         driver.get(url)
 
-        for item in range(3): #by increasing the highest range you can get more content
+        for item in range(10): #load thêm số lần
             wait.until(EC.visibility_of_element_located((By.TAG_NAME, "body"))).send_keys(Keys.END)
-            time.sleep(3)
+            time.sleep(2)
 
         for comment in wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#comment #content-text"))):
             data = comment.text
